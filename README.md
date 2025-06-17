@@ -4,6 +4,9 @@ A Benchmark for Evaluating LLMs' Ability to Request Missing Information in Math 
 **Blog:** <a href="https://sunset-jupiter-cf3.notion.site/LLM-Fail-to-Acquire-Context-20fb7e977237802ca126ed554ccb8083?pvs=74">
     <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white" width="80" style="vertical-align: middle;">
 </a>
+**HF Dataset:** <a href="https://huggingface.co/datasets/Frinkleko/IncompleteQuestionsWithConditions">
+    <img src="https://img.shields.io/badge/-HuggingFace-3B4252?style=flat&logo=huggingface&logoColor=whilte" width="80" style="vertical-align: middle;">
+</a>
 
 
 [Benchmark](#benchmark) | [Experiments](#experiments) | [Cite](#cite) 
@@ -22,7 +25,25 @@ We build a benchmark to investigate this intriguing challenge faced by Large Lan
 > (Left) Performance degradation from full context to missing context, even though LLM are explicitly prompted about asking questions. (Right) LLMs' tendency to make wrong assumptions when context is missing, leading to hallucinations and incorrect answers.
 
 ## Benchmark
-We are uploading the benchmark to HuggingFace Datasets, which will be available soon. Feel free to play with the nano version of the benchmark in the `benchmark` folder.
+
+
+We now offer the large version of this benchmark on HuggingFace, containing 1912 samples.
+
+- **"Incomplete Questions with Conditions" (large) dataset:** [HuggingFace Dataset](https://huggingface.co/datasets/Frinkleko/IncompleteQuestionsWithConditions)
+
+Each sample includes an incomplete question without a condition, the condition itself, the answer, and the original full question from which these components are derived. Here is an example:
+
+```json
+{
+    "index": 130,
+    "question": "Given the sets $A=\\{1,2,3,4\\}$ and $B=\\{x|y=2x,y\\in A\\}$, then $A\\cap B=$\u3000\u3000()\n\nA: $\\{2\\}$  \nB: $\\{1,2\\}$  \nC: $\\{2,4\\}$  \nD: $\\{1,2,4\\}$",
+    "new_question": "Given the set $B=\\{x|y=2x,y\\in A\\}$, then $A\\cap B=$\u3000\u3000() A: $\\{2\\}$  B: $\\{1,2\\}$  C: $\\{2,4\\}$  D: $\\{1,2,4\\}$",
+    "condition": "$A=\\{1,2,3,4\\}$",
+    "answer": "B"
+}
+```
+
+We may add or adjust more representative samples in the future to develop a formal academic benchmark.
 
 ## Experiments
 
