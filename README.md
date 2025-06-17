@@ -26,7 +26,6 @@ We build a benchmark to investigate this intriguing challenge faced by Large Lan
 
 ## Benchmark
 
-
 We now offer the large version of this benchmark on HuggingFace, containing 1912 samples.
 
 - **"Incomplete Questions with Conditions" (large) dataset:** [HuggingFace Dataset](https://huggingface.co/datasets/Frinkleko/IncompleteQuestionsWithConditions)
@@ -41,6 +40,11 @@ Each sample includes an incomplete question without a condition, the condition i
     "condition": "$A=\\{1,2,3,4\\}$",
     "answer": "B"
 }
+```
+You can also **test this sample with your LLMs now**, copy the following prompt and send it to your LLM:
+
+```
+Given sets b={0,1,2}, then a∩b=（　　）\n\na: {0}\n\nb: {1}\n\nc: {1，2}\n\nd: {0，1，2}. Return answer in \boxed{}.
 ```
 
 We may add or adjust more representative samples in the future to develop a formal academic benchmark.
